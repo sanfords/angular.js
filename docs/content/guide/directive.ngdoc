@@ -17,7 +17,18 @@ how to implement them.
 
 ## What are Directives?
 
-At a high level, directives are markers on a DOM element (such as an attribute, element
+Primarily, directives allow you to do two things: (1) directives allow
+you to create custom **elements**, like, say, `<dog>Woof!</dog>`, and (2)
+directives allow you to create your own **attributes** on elements (even
+your own), like, say, `<span cat="meow"></span>`.  Angular will call
+your directive functions with their associated data so you can create
+valid HTML for your rendered page.  For performance, Angular will call
+your directive functions at optimal times when it builds your document.
+While very powerful, directives should generally be used to do things
+you can't do efficiently in your own controllers or with Angular's built-in 
+directives.
+
+Directives are markers on a DOM element (such as an attribute, element
 name, or CSS class) that tell AngularJS's **HTML compiler** ({@link ng.$compile `$compile`}) to
 attach a specified behavior to that DOM element or even transform the DOM element and its children.
 
@@ -53,12 +64,12 @@ The following also **matches** `ngModel`:
 <input data-ng:model="foo">
 ```
 
-Angular **normalizes** an element's tag and attribute name to determine which elements match which
-directives. We typically refer to directives by their case-sensitive
-[camelCase](http://en.wikipedia.org/wiki/CamelCase) **normalized** name (e.g. `ngModel`).
-However, since HTML is case-insensitive, we refer to directives in the DOM by lower-case
-forms, typically using [dash-delimited](http://en.wikipedia.org/wiki/Letter_case#Computers)
-attributes on DOM elements (e.g. `ng-model`).
+Angular **normalizes** the names of elements and attributes to determine which elements match which
+directives.  **Javascript is case-sensitive** and **HTML is case-insensitive**.  To accomodate this, 
+Angular will automaticaly transalte your directive's name between case-sensitive
+[camelCase](http://en.wikipedia.org/wiki/CamelCase) (e.g. `ngModel` in Javascript)
+and case-insensitive [dashed-format](http://en.wikipedia.org/wiki/Letter_case#Computers) (e.g.
+`ng-model` in HTML).
 
 The **normalization** process is as follows:
 
