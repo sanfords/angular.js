@@ -12,7 +12,8 @@ If you're looking for the **directives API**, we recently moved it to {@link ng.
 
 
 This document explains when you'd want to create your own directives in your AngularJS app, and
-how to implement them.
+how to implement them.  For a detailed description of the Directive Definition Object, see 
+the documentation for AngularJS's **HTML compiler** ({@link ng.$compile `$compile`}).
 
 
 ## What are Directives?
